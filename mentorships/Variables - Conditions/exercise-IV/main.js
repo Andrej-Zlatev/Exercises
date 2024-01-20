@@ -15,9 +15,8 @@ const hours = Math.floor(time / 3600);
 const minutes = Math.floor((time % 3600) / 60);
 const remainingSeconds = time % 60;
 
-if (time >= 0) {
+if (time >= 0 && time <= 86400) {
   timeDisplay.textContent = `The time is ${hours}h:${minutes}min:${remainingSeconds}sec.`;
-
   timeDisplay.style.textDecoration = "underline";
   timeDisplay.style.textAlign = "center";
 } else {
