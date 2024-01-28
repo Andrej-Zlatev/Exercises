@@ -14,5 +14,7 @@ for (let i = 0; i < arr.length - 1; i++) {
   //   let nextElement = arr[i + 1];
   //   newArr.push([currentElement, nextElement]);
   let sliced = arr.slice(i, i + 2);
-  console.log(sliced);
+  newArr.push(sliced);
 }
+
+console.log(newArr);
