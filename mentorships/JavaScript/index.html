@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Latest compiled and minified Bootstrap 4.4.1 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-6 offset-3 text-center">
+          <h1>Your Activities for today</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 offset-3 table-container"></div>
+      </div>
+    </div>
+
+    <script>
+      let activities = [
+        ["Work", 8],
+        ["Eat", 3],
+        ["Commute", 2],
+        ["Play Game", 1],
+        ["Workout", 2],
+        ["Sleep", 8],
+      ];
+
+      let tableContainer = document.querySelector(".table-container");
+
+      // Function to create a row
+      function createRow(index, activity, duration) {
+        let row = document.createElement("tr");
+
+        // Create cell for the index
+        let indexCell = document.createElement("td");
+        indexCell.textContent = index;
+        row.appendChild(indexCell);
+
+        // Create cells for each activity
+        let activityCell = document.createElement("td");
+        activityCell.textContent = activity;
+        row.appendChild(activityCell);
+
+        let hoursCell = document.createElement("td");
+        hoursCell.textContent = duration;
+        row.appendChild(hoursCell);
+
+        // EXERCISE 2
+        let percentageCell = document.createElement("td");
+        let percentage = (duration / 24) * 100;
+        percentageCell.textContent = percentage.toFixed(0) + "%";
+        row.appendChild(percentageCell);
+
+        return row;
+      }
+
+      // Function to create the table header
+      function createTableHeader() {
+        let tableHeader = document.createElement("tr");
+        let indexHeader = document.createElement("th");
+        let activityHeader = document.createElement("th");
+        let hoursHeader = document.createElement("th");
+
+        indexHeader.textContent = "Index";
+        activityHeader.textContent = "Activity";
+        hoursHeader.textContent = "Hours";
+
+        tableHeader.appendChild(indexHeader);
+        tableHeader.appendChild(activityHeader);
+        tableHeader.appendChild(hoursHeader);
+
+        // EXERCISE 2
+        let percentageHeader = document.createElement("th");
+        percentageHeader.textContent = "% of the day";
+        tableHeader.appendChild(percentageHeader);
+
+        return tableHeader;
+      }
+
+      // Function to create the table
+      function createTable() {
+        let table = document.createElement("table");
+
+        // EXERCISE 1
+        table.classList.add(
+          "mx-auto",
+          "table",
+          "table-dark",
+          "table-bordered",
+          "border-primary",
+          "table-striped",
+          "text-light"
+        );
+
+        return table;
+      }
+
+      // Function to populate the table body
+      function populateBody() {
+        // Clear existing content
+        tableContainer.innerHTML = "";
+
+        // Create and append the table
+        let table = createTable();
+        tableContainer.appendChild(table);
+
+        // Create and append the table header
+        table.appendChild(createTableHeader());
+
+        // Iterate through activities and create rows
+        for (let i = 0; i < activities.length; i++) {
+          let [activity, duration] = activities[i];
+          let index = i;
+          let row = createRow(index, activity, duration);
+          table.appendChild(row);
+        }
+
+        // EXERCISE 3
+        function removeIndex(index) {
+          activities.splice(index, 1);
+        }
+
+        removeIndex(2);
+
+        if (table.rows[2]) {
+          table.deleteRow(2);
+
+          for (let i = 2; i < table.rows.length; i++) {
+            const currentRow = table.rows[i];
+            const indexCell = currentRow.cells[0];
+
+            indexCell.textContent = i - 1;
+          }
+        }
+      }
+
+      // Call the populateBody function
+      populateBody();
+    </script>
+  </body>
+</html>
