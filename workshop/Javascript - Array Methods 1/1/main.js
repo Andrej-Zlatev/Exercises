@@ -8,12 +8,13 @@
 // arr2=["Anna","Elena"];
 // console: Anna,Elena
 
-const names = ["Mark", "Bill", "Anna", "John", "Elena", "Andrei", "Oliver"];
-const arr = [];
+const names = ["Ognen", "Ana", "Petar", "Biljana", "Marko", "Marija", "Lena"];
+const emptyArray = [];
 
-for (let i = 2; i < names.length; i += 2) {
-  const evenPositions = names[i];
-  arr.push(evenPositions);
+for (let i = 0; i < names.length; i++) {
+  if (i !== 0 && i % 2 === 0) {
+    emptyArray.push(names[i]);
+  }
 }
 
-console.log(arr);
+console.log(emptyArray.join(", "));
