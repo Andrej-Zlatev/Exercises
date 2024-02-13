@@ -25,5 +25,3 @@ let done = () => {
 };
 
 counter(5, done);
-
-setTimeout;
