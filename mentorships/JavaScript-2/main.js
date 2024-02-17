@@ -47,7 +47,22 @@ tags.forEach((el) => {
 // In the first sidebar widget (that's already done) there are bunch of links and in the main-content
 // there is a main-content-widget that is hidden (display: none), where it says Exercise III.
 // Get every odd link (1/3/5) and place that same link as a child of the main-content-widget,
-//  don't re-create it from scratch (hint: innerHTML). After inserting all the links as children, show the main-content-widget on the page (display: block)
+//  don't re-create it from scratch (hint: innerHTML). After inserting all the links as children,
+//  show the main-content-widget on the page (display: block)
+
+const widgetsSidebar = document.querySelectorAll(
+  ".widget-sidebar div.link-block"
+);
+
+const mainContentWidget = document.querySelector(".main-content-widget");
+const widgetsArray = Array.from(widgetsSidebar);
+const filteredWidgets = widgetsArray.filter((_, index) => index % 2 === 0);
+filteredWidgets.forEach((el) => {
+  const newWidget = document.createElement("div");
+  newWidget.innerHTML = el.innerHTML;
+  mainContentWidget.appendChild(newWidget);
+  mainContentWidget.style.display = "block";
+});
 
 // exercise IV
 // You are given an array of images. In html there is a carousel that is hidden (display: none), where it says Exercise IV. The carousel has no carousel-items inside the carousel-inner div. Your task is to iterate through the array of images and for every image create a new slide in the carousel. Make sure you put the active class on the first one only in order to make the carousel work properly. After inserting all the images as carousel slides show the carousel on the page (display: block).
