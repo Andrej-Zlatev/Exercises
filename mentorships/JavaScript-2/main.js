@@ -65,13 +65,47 @@ filteredWidgets.forEach((el) => {
 });
 
 // exercise IV
-// You are given an array of images. In html there is a carousel that is hidden (display: none), where it says Exercise IV. The carousel has no carousel-items inside the carousel-inner div. Your task is to iterate through the array of images and for every image create a new slide in the carousel. Make sure you put the active class on the first one only in order to make the carousel work properly. After inserting all the images as carousel slides show the carousel on the page (display: block).
+// You are given an array of images. In html there is a carousel that is hidden (display: none), where it says Exercise IV.
+//  The carousel has no carousel-items inside the carousel-inner div. Your task is to iterate through the array of images
+// and for every image create a new slide in the carousel. Make sure you put the active class on the first one only in order
+//  to make the carousel work properly. After inserting all the images as carousel slides show the carousel on the page (display: block).
 let imgsArr = [
   "https://picsum.photos/id/1044/1280/720",
   "https://picsum.photos/id/1040/1280/720",
   "https://picsum.photos/id/1041/1280/720",
   "https://picsum.photos/id/1042/1280/720",
 ];
+
+const carousel = document.getElementById("carouselExampleIndicators");
+const changingImg = document.getElementById("carousel-img");
+const prevBtn = document.querySelector(".carousel-control-prev");
+const nextBtn = document.querySelector(".carousel-control-next");
+
+let currentIndex = 0;
+
+function addImg() {
+  changingImg.src = imgsArr[currentIndex];
+  carousel.style.display = "block";
+  changingImg.style.width = "100%";
+}
+
+function prevImg() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    addImg();
+  }
+}
+
+function nextImg() {
+  if (currentIndex < imgsArr.length - 1) {
+    currentIndex++;
+    addImg();
+  }
+}
+
+prevBtn.addEventListener("click", prevImg);
+nextBtn.addEventListener("click", nextImg);
+addImg();
 
 // Example of one carousel item (slide)
 {
