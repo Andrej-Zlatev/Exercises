@@ -12,3 +12,15 @@ function onSubmit() {
 }
 
 btnEl.addEventListener("click", onSubmit);
+
+// Exercise II
+// 1. Using the file and code from Exercise I, add:
+// a) A function called onMouseOver that gives the button a css class of “hover”;
+// b) A function called onMouseOut that removes the “hover” class from the button;
+// 2. To the button, add an event listener for “mouseover” and invoke onMouseOver.
+// 3. Also add an event listener for “mouseout” and invoke onMouseOut.
+
+const onMouseMove = () => btnEl.classList.toggle("hover");
+
+btnEl.addEventListener("mouseover", onMouseMove);
+btnEl.addEventListener("mouseout", onMouseMove);
