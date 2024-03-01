@@ -19,8 +19,7 @@
 // b) otherwise, color the body green.
 
 const onScroll = () => {
-  scrollY > 1000
-    ? (document.body.style.backgroundColor = "red")
-    : (document.body.style.backgroundColor = "green");
+  document.body.style.backgroundColor = window.scrollY > 1000 ? "red" : "green";
 };
+
 window.addEventListener("scroll", onScroll);
