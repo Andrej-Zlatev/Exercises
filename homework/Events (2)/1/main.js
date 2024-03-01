@@ -2,7 +2,6 @@
 //   alert("Welcome!");
 // }
 // function onUnload(event) {
-//   // this is the only way this event works, alerts/messages are ignored.
 //   event.returnValue = "Are you sure you want to leave this page?";
 //   return true;
 // }
@@ -18,8 +17,27 @@
 // a) past 1000px on the page, and if you had, color the body red.
 // b) otherwise, color the body green.
 
-const onScroll = () => {
-  document.body.style.backgroundColor = window.scrollY > 1000 ? "red" : "green";
+// const onScroll = () => {
+//   document.body.style.backgroundColor = window.scrollY > 1000 ? "red" : "green";
+// };
+
+// window.addEventListener("scroll", onScroll);
+
+// Exercise II
+
+// Continue in the same document from the last presentation.
+// 1. Change the submit function: store the variables defined in the previous exercises (so they remain after
+// a reload)
+// 2. Create an onLoad function which checks if values in localStorage exist & loads them in console. hint:
+// localStorage.getItem();
+// 3. Add a “load” listener to the window, triggering the onLoadfunction, so it invokes on reload.
+
+const onLoad = () => {
+  console.log(name);
 };
 
-window.addEventListener("scroll", onScroll);
+localStorage.setItem("name", "John");
+
+const name = localStorage.getItem("name");
+
+window.addEventListener("load", onLoad);
