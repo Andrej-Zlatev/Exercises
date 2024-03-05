@@ -22,3 +22,13 @@ cat["name"] = "Simba";
 cat["color"] = "Yellow";
 
 console.log(cat.name, cat.color);
+
+// Exercise 3
+// 1. Add a “meow” method to the Cat object. It should simply alert “meow” on the screen when invoked.
+// 2. Invoke the “meow” method from the Cat object.
+
+cat.meow = function () {
+  alert("Meow");
+};
+
+cat.meow();
