@@ -9,9 +9,9 @@ const startBtn = document.getElementById("startButton");
 const resetBtn = document.getElementById("resetButton");
 const pauseBtn = document.getElementById("pauseButton");
 let timerInterval;
+let seconds = 60;
 
 const timeStart = () => {
-  let seconds = 60;
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     timerEl.textContent = seconds;
@@ -24,7 +24,8 @@ const timeStart = () => {
 
 const resetInterval = () => {
   clearInterval(timerInterval);
-  timerEl.textContent = 60;
+  seconds = 60;
+  timerEl.textContent = seconds;
 };
 
 const pauseInterval = () => {
