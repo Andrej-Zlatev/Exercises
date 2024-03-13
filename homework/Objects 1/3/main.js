@@ -10,27 +10,27 @@
 // Step 1: Create an empty array called "dogs"
 // Define a DogsManager object
 
-const DogsManager = {
-  dogs: [],
-
-  addDog: function (name, color) {
-    const newDog = { name: name, color: color };
-    this.dogs.push(newDog);
-    console.log(this.dogs);
-  },
-
-  getDogs: function () {
-    return this.dogs;
-  },
-};
-
 const nameInput = document.getElementById("name");
 const colorInput = document.getElementById("color");
 const addButton = document.getElementById("addDogButton");
 
-addButton.addEventListener("click", function () {
-  const name = nameInput.value;
-  const color = colorInput.value;
+dogs = [];
 
-  DogsManager.addDog(name, color);
+let nameVal = "";
+let colorVal = "";
+
+nameInput.addEventListener("input", (e) => {
+  nameVal = e.target.value;
+});
+
+colorInput.addEventListener("input", (e) => {
+  colorVal = e.target.value;
+});
+
+addButton.addEventListener("click", () => {
+  dogs.push({
+    name: nameVal,
+    color: colorVal,
+  });
+  console.log(dogs);
 });
