@@ -22,7 +22,7 @@ let slideshow;
 
 const autoSlideShow = () => {
   carouselImg.src = images[currentImg];
-  currentImg = (currentImg + 1) % images.length; // Increment currentImg and loop back to 0 when it reaches the end
+  currentImg = (currentImg + 1) % images.length;
 };
 
 slideshow = setInterval(autoSlideShow, 2000);
@@ -30,11 +30,11 @@ slideshow = setInterval(autoSlideShow, 2000);
 let pauseSlideshow = () => {
   if (slideshow) {
     clearInterval(slideshow);
-    slideshow = null; // Set slideshow to null to indicate that it's paused
-    pauseBtn.textContent = "Play"; // Change button text to "Play"
+    slideshow = null;
+    pauseBtn.textContent = "Play";
   } else {
     slideshow = setInterval(autoSlideShow, 2000);
-    pauseBtn.textContent = "Pause"; // Change button text to "Pause"
+    pauseBtn.textContent = "Pause";
   }
 };
 
