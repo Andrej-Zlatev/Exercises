@@ -36,5 +36,3 @@ formEl.addEventListener("submit", (e) => {
   </div>
   `;
 });
-
-// console.log(person.personName);
