@@ -32,17 +32,46 @@
 // catOne.SayNameAndColor();
 // console.log(catOne);
 
-function Cake(flavor, price, occasion) {
-  this.flavor = flavor;
-  this.price = price;
-  this.occasion = occasion;
+// function Cake(flavor, price, occasion) {
+//   this.flavor = flavor;
+//   this.price = price;
+//   this.occasion = occasion;
+// }
+
+// Cake.prototype.describe = function () {
+//   console.log(
+//     `The ${this.occasion} cake has a ${this.flavor} flavor and costs ${this.price}$`
+//   );
+// };
+
+// const newCake = new Cake("cherry", 30, "birthday");
+// newCake.describe();
+
+function Onlinebook(title, uploader, pages) {
+  this.title = title;
+  this.uploader = uploader;
+  this.pages = pages;
 }
 
-Cake.prototype.describe = function () {
+Onlinebook.prototype.read = function () {
   console.log(
-    `The ${this.occasion} cake has a ${this.flavor} flavor and costs ${this.price}$`
+    `You read all ${this.pages} pages of ${this.title} which is uploaded by ${this.uploader}`
   );
 };
 
-const newCake = new Cake("cherry", 30, "birthday");
-newCake.describe();
+const bookOne = new Onlinebook("Naslov", "Avtor", 100);
+bookOne.read();
+console.log(bookOne);
+
+const arr = [
+  { title: "Naslov1", uploader: "Avtor1", pages: 101 },
+  { title: "Naslov2", uploader: "Avtor2", pages: 102 },
+  { title: "Naslov3", uploader: "Avtor3", pages: 103 },
+];
+
+let newArr = [];
+arr.forEach((book) => {
+  newArr.push(new Onlinebook(book.title, book.uploader, book.pages));
+});
+
+console.log(newArr);
