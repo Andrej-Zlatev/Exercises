@@ -7,22 +7,42 @@
 
 // console.log(newCat);
 
-function Cat() {
-  this.name = "";
-  this.color = "";
-  this.setName = function (name) {
-    this.name = name;
-  };
-  this.setColor = function (color) {
-    this.color = color;
-  };
-  this.SayNameAndColor = function () {
-    alert(`The cat name is ${this.name} and the color is ${this.color}`);
-  };
+// function Cat() {
+//   this.name = "";
+//   this.color = "";
+// }
+
+// Cat.prototype.setName = function (name) {
+//   this.name = name;
+// };
+
+// Cat.prototype.setColor = function (color) {
+//   this.color = color;
+// };
+
+// Cat.prototype.SayNameAndColor = function () {
+//   alert(`The cat name is ${this.name} and the color is ${this.color}`);
+// };
+
+// const catTwo = new Cat();
+// console.log(catTwo);
+// const catOne = new Cat();
+// catOne.setName("Tom");
+// catOne.setColor("Blue");
+// catOne.SayNameAndColor();
+// console.log(catOne);
+
+function Cake(flavor, price, occasion) {
+  this.flavor = flavor;
+  this.price = price;
+  this.occasion = occasion;
 }
 
-const catOne = new Cat();
-catOne.setName("Tom");
-catOne.setColor("Blue");
-catOne.SayNameAndColor();
-console.log(catOne);
+Cake.prototype.describe = function () {
+  console.log(
+    `The ${this.occasion} cake has a ${this.flavor} flavor and costs ${this.price}$`
+  );
+};
+
+const newCake = new Cake("cherry", 30, "birthday");
+newCake.describe();
