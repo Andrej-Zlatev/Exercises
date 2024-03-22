@@ -1,23 +1,23 @@
 // function Rectangle(width, height) {
-// this.width = width;
-// this.height = height;
+//   this.width = width;
+//   this.height = height;
 // }
 
 // Rectangle.prototype.getArea = function () {
-// console.log(this.width * this.height);
+//   console.log(this.width * this.height);
 // };
 
 // class Rectangle {
-// // create object's properties inside the constructor
-// constructor(width, height) {
-// this.width = width;
-// this.height = height;
-// }
+//   // create object's properties inside the constructor
+//   constructor(width, height) {
+//     this.width = width;
+//     this.height = height;
+//   }
 
-// // methods in classes are defined without the "function" keyword
-// getArea() {
-// console.log(this.width * this.height);
-// }
+//   // methods in classes are defined without the "function" keyword
+//   getArea() {
+//     console.log(this.width * this.height);
+//   }
 // }
 
 // const rec1 = new Rectangle(10, 5);
@@ -37,18 +37,18 @@
 // 7. Invoke sayNameAndColor again.
 
 // class Cat {
-// constructor(name, color) {
-// this.name = name;
-// this.color = color;
-// }
+//   constructor(name, color) {
+//     this.name = name;
+//     this.color = color;
+//   }
 
-// sayNameAndColor() {
-// alert(`the name is: ${this.name} and the color is ${this.color}`);
-// }
+//   sayNameAndColor() {
+//     alert(`the name is: ${this.name} and the color is ${this.color}`);
+//   }
 
-// setName(newName) {
-// this.name = newName;
-// }
+//   setName(newName) {
+//     this.name = newName;
+//   }
 // }
 
 // const cat = new Cat("Thomas", "blue");
@@ -59,43 +59,125 @@
 
 // exercise 2
 
-const dogs = [];
+class Animal {
+  constructor(name, color, id) {
+    this.id = id;
+    this.name = name;
+    this.color = color;
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, color, id) {
+    super(name, color, id);
+    // type should also go in Animal in real case scenario
+    // Dog should contain properties/methods specific for dogs only
+    this.type = "dog";
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, color, id) {
+    super(name, color, id);
+    this.type = "cat";
+  }
+}
+
+// Exercise 6
+
+// Extend the previous exercise:
+// 1. Define an extra animal type (Cat, Bird...) which extends Animal. Just like Dog, it should also have an
+// animalType property which has the value of 'cat' or 'bird', as appropriate.
+// 2. Add a dropdown next to the text inputs which contains all of the possible animal types. (also in the
+// homework, so if you did it, use that)
+// 3. When a new animal is created, use the correct instance for that Animal (Dog, Bird, Cat)
+class Bird extends Animal {
+  constructor(name, color, id) {
+    super(name, color, id);
+    this.type = "bird";
+  }
+}
+
+const pets = [];
+let nextId = 0;
+let editingPetId;
 
 const nameEl = document.getElementById("name");
 const colorEl = document.getElementById("color");
+const petSelection = document.getElementById("petType");
 const btn = document.querySelector("button");
 
 let nameVal = "";
 let colorVal = "";
 
-class Dog {
-  constructor(name, color) {
-    this.name = name;
-    this.color = color;
-  }
-}
-const appendDog = (dogs) => {
-  const dogsEl = document.getElementById("dogs");
-  // exercise 7
-  dogsEl.innerHTML = "";
+const appendPet = (pets) => {
+  const petsEl = document.getElementById("pets");
+  petsEl.innerHTML = "";
 
-  dogs.forEach((dog) => {
-    dogsEl.innerHTML += `<tr>
- <td>${dog.name}</td>
- <td>${dog.color}</td>
- </tr>`;
+  pets.forEach((pet) => {
+    const row = document.createElement("tr");
+
+    // name
+    const nameCell = document.createElement("td");
+    nameCell.textContent = pet.name;
+    row.appendChild(nameCell);
+
+    // color
+    const colorCell = document.createElement("td");
+    colorCell.textContent = pet.color;
+    row.appendChild(colorCell);
+
+    const petTypeCell = document.createElement("td");
+    petTypeCell.textContent = pet.type;
+    row.appendChild(petTypeCell);
+
+    // edit button
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    row.appendChild(editBtn);
+    editBtn.addEventListener("click", () => {
+      nameEl.value = pet.name;
+      colorEl.value = pet.color;
+      editingPetId = pet.id;
+      btn.textContent = "Save";
+    });
+
+    petsEl.appendChild(row);
   });
+
+  nameEl.value = "";
+  colorEl.value = "";
 };
 
 btn.addEventListener("click", () => {
-  // another way - color is merged
-  if (nameVal && colorVal) {
-    const dog = new Dog(nameVal, colorVal);
-    dogs.push(dog);
+  // find the index of a pet we're editing based on editingPetId
 
-    appendDog(dogs);
+  if (editingPetId) {
+    const index = pets.findIndex((pet) => pet.id === editingPetId);
+    pets[index].name = nameEl.value;
+    pets[index].color = colorEl.value;
+    editingPetId = undefined;
+    btn.textContent = "Add pet";
+  } else {
+    if (nameVal && colorVal) {
+      nextId++;
+      // const pet =
+      //   petSelection.value === "dog"
+      //     ? new Dog(nameVal, colorVal, nextId)
+      //     : new Cat(nameVal, colorVal, nextId);
+      let pet;
+      if (petSelection.value === "dog") {
+        pet = new Dog(nameVal, colorVal, nextId);
+      } else if (petSelection.value === "cat") {
+        pet = new Cat(nameVal, colorVal, nextId);
+      } else {
+        pet = new Bird(nameVal, colorVal, nextId);
+      }
+      pets.push(pet);
+      console.log(pets);
+    }
   }
-  console.log(dogs);
+  appendPet(pets);
 });
 
 nameEl.addEventListener("input", (e) => {
@@ -105,3 +187,11 @@ nameEl.addEventListener("input", (e) => {
 colorEl.addEventListener("input", (e) => {
   colorVal = e.target.value;
 });
+
+const createAnimal = (id, name, color) => {
+  return {
+    id,
+    name,
+    color,
+  };
+};
