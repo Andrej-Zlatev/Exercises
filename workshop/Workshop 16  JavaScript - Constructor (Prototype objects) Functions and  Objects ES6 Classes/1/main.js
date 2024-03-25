@@ -8,14 +8,12 @@
 // working as a javascript developer'.
 // - Call the two methods and see the result in the console.
 
-class Developer {
-  constructor(fullName, age, experience, workingPosition) {
-    this.fullName = fullName;
-    this.age = age;
-    this.experience = experience;
-    this.workingPosition = workingPosition;
-  }
-  getSeniority() {
+const developer = {
+  fullName: "Andrej",
+  age: 34,
+  experience: 1,
+  workingPosition: "React Developer",
+  getSeniority: function () {
     if (this.experience <= 1) {
       return console.log("Junior developer");
     } else if (this.experience <= 3 && this.experience > 1) {
@@ -23,14 +21,45 @@ class Developer {
     } else {
       return console.log("Senior developer");
     }
-  }
-  display() {
+  },
+  display: function () {
     return console.log(
       `I am ${this.fullName}, ${this.age} years old and iam working as ${this.workingPosition}`
     );
-  }
-}
+  },
+};
 
-const newDeveloper = new Developer("Andrej", 34, 1, "React Developer");
-newDeveloper.getSeniority();
-newDeveloper.display();
+const result = developer.getSeniority();
+const string = developer.display();
+
+// 02
+// - Rewrite the first exercise with a constructor function.
+// - Instantiate a new object based on the constructor function.
+// - Call the two methods and see the result in the console.
+
+// class Developer {
+//   constructor(fullName, age, experience, workingPosition) {
+//     this.fullName = fullName;
+//     this.age = age;
+//     this.experience = experience;
+//     this.workingPosition = workingPosition;
+//   }
+//   getSeniority() {
+//     if (this.experience <= 1) {
+//       return console.log("Junior developer");
+//     } else if (this.experience <= 3 && this.experience > 1) {
+//       return console.log("Medior develiper");
+//     } else {
+//       return console.log("Senior developer");
+//     }
+//   }
+//   display() {
+//     return console.log(
+//       `I am ${this.fullName}, ${this.age} years old and iam working as ${this.workingPosition}`
+//     );
+//   }
+// }
+
+// const newDeveloper = new Developer("Andrej", 34, 1, "React Developer");
+// newDeveloper.getSeniority();
+// newDeveloper.display();
