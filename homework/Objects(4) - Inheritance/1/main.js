@@ -24,26 +24,52 @@
 // newProgrammer.sayFullName();
 // newProgrammer.sayFavoriteLanguage();
 
-class Person {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-  sayFullName() {
-    alert(`Full name: ${this.firstName} ${this.lastName}`);
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+//   sayFullName() {
+//     alert(`Full name: ${this.firstName} ${this.lastName}`);
+//   }
+// }
+
+// class Programmer extends Person {
+//   constructor(firstName, lastName, favLanguage) {
+//     super(firstName, lastName);
+//     this.favLanguage = favLanguage;
+//   }
+//   sayFavoriteLanguage() {
+//     alert(`Favorite language: ${this.favLanguage}`);
+//   }
+// }
+
+// const newProgrammer = new Programmer("John", "Doe", "Javascript");
+// newProgrammer.sayFullName();
+// newProgrammer.sayFavoriteLanguage();
+
+class Animal {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
   }
 }
 
-class Programmer extends Person {
-  constructor(firstName, lastName, favLanguage) {
-    super(firstName, lastName);
-    this.favLanguage = favLanguage;
-  }
-  sayFavoriteLanguage() {
-    alert(`Favorite language: ${this.favLanguage}`);
+class Cat extends Animal {
+  constructor(name, color, type) {
+    super(name, color);
+    this.type = "Cat";
   }
 }
 
-const newProgrammer = new Programmer("John", "Doe", "Javascript");
-newProgrammer.sayFullName();
-newProgrammer.sayFavoriteLanguage();
+class Dog extends Animal {
+  constructor(name, color, type) {
+    super(name, color);
+    this.type = "Dog";
+  }
+}
+
+const newCat = new Cat("Simba", "Yellow");
+const newDog = new Dog("Spikey", "Black");
+console.log(newCat);
+console.log(newDog);
