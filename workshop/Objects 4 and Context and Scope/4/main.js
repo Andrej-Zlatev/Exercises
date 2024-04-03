@@ -4,15 +4,15 @@
 // - Create a custom function updateClock that shows the current time in the selected
 // timezone by the user
 
-// function getUser(userId, callback) {
-//   setTimeout(() => {
-//     callback({
-//       userId: userId,
-//       username: "John",
-//     });
-//   }, 1000);
-// }
+function getUser(userId, callback) {
+  setTimeout(() => {
+    callback({
+      userId: userId,
+      username: "John",
+    });
+  }, 1000);
+}
 
-// getUser(1, function (callback) {
-//   console.log(callback);
-// });
+getUser(1, function (callback) {
+  console.log(callback);
+});
