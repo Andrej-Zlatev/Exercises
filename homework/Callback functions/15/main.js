@@ -16,12 +16,12 @@ function multiply(a, b) {
   return a * b;
 }
 
-function result(a, b, cb) {
-  return cb(a, b);
-}
-
 function divide(a, b) {
   return a / b;
+}
+
+function result(a, b, cb) {
+  return cb(a, b);
 }
 
 console.log(result(5, 5, add));
