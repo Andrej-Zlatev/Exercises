@@ -5,14 +5,26 @@
 // c. First, log the response from the POST request you send
 // d. Then, show the new post on screen, using the new title and body from the response
 
-fetch("https://jsonplaceholder.typicode.com/posts", {
-  method: "POST",
-  body: JSON.stringify({
-    id: 1,
-    title: "Title",
-    body: "Body",
-    userId: 2,
-  }),
-})
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   method: "POST",
+//   body: JSON.stringify({
+//     id: 1,
+//     title: "Title",
+//     body: "Body",
+//     userId: 2,
+//   }),
+// })
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+const loadPost = async () => {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts13131");
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+loadPost();
