@@ -17,14 +17,27 @@
 //   .then((res) => res.json())
 //   .then((data) => console.log(data));
 
-const loadPost = async () => {
-  try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+// const loadPost = async () => {
+//   try {
+//     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+//     const data = await res.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// loadPost();
+
+const getUsersAndPosts = async () => {
+  const [users, posts] = await Promise.all([
+    fetch("https://jsonplaceholder.typicode.com/users"),
+    fetch("https://jsonplaceholder.typicode.com/posts"),
+  ]);
+  const usersResult = await users.json();
+  console.log(usersResult);
+  const postsResult = await posts.json();
+  console.log(postsResult);
 };
 
-loadPost();
+getUsersAndPosts();
