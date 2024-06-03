@@ -1,0 +1,20 @@
+@use "../../css/abstracts/variables" as var;
+@use "sass:math";
+@use "../../css/abstracts/mixins";
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$background-color-secondary;
+  @extend %section;
+  .footer-nav {
+    list-style: none;
+    text-align: center;
+    li a {
+      color: var.$text-color-secondary;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}

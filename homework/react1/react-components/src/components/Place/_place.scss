@@ -1,0 +1,28 @@
+@use "../../css/abstracts/variables" as var;
+@use "sass:math";
+@use "../../css/abstracts/mixins";
+
+.place-card {
+  width: 33.333%;
+  position: relative;
+  color: white;
+  text-align: center;
+  img {
+    filter: brightness(0.7);
+  }
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 425px) {
+    width: 100%;
+  }
+  .place-card-text {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,8 @@
+@use "../../css/abstracts/variables" as var;
+@use "sass:math";
+@use "../../css/abstracts/mixins";
+
+.places-container {
+  display: flex;
+  flex-wrap: wrap;
+}
