@@ -20,19 +20,55 @@
 // parameters will take the values from the inputs
 // - Add the result of the function into the document
 
-const firstNum: HTMLInputElement | null = document.querySelector("#firstNum");
-const secondNum: HTMLInputElement | null = document.querySelector("#secondNum");
-const btn: HTMLButtonElement | null = document.querySelector("button");
+// const firstNum: HTMLInputElement | null = document.querySelector("#firstNum");
+// const secondNum: HTMLInputElement | null = document.querySelector("#secondNum");
+// const btn: HTMLButtonElement | null = document.querySelector("button");
 
-const sum = (a: number, b: number): number => {
-  return a + b;
-};
+// const sum = (a: number, b: number): number => {
+//   return a + b;
+// };
 
-btn?.addEventListener("click", () => {
-  if (firstNum && secondNum) {
-    const result = sum(Number(firstNum.value), Number(secondNum.value));
-    console.log(result);
-  }
-});
+// btn?.addEventListener("click", () => {
+//   if (firstNum && secondNum) {
+//     const result = sum(Number(firstNum.value), Number(secondNum.value));
+//     console.log(result);
+//   }
+// });
 
-console.log("test");
+// console.log("test");
+
+interface fetchedData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+}
+
+var tbody = document.querySelector("tbody");
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    data.forEach(function (user) {
+      var tr = document.createElement("tr");
+      var nameTd = document.createElement("td");
+      var emailTd = document.createElement("td");
+      var phoneTd = document.createElement("td");
+      nameTd.innerText = user.name;
+      emailTd.innerText = user.email;
+      phoneTd.innerText = user.phone;
+      tr.append(nameTd, emailTd, phoneTd);
+      tbody === null || tbody === void 0 ? void 0 : tbody.append(tr);
+    });
+  });
