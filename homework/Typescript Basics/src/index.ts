@@ -37,38 +37,77 @@
 
 // console.log("test");
 
-interface fetchedData {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-}
+// interface fetchedData {
+//   id: number;
+//   name: string;
+//   username: string;
+//   email: string;
+//   address: {
+//     street: string;
+//     suite: string;
+//     city: string;
+//     zipcode: string;
+//     geo: {
+//       lat: string;
+//       lng: string;
+//     };
+//   };
+// }
 
-var tbody = document.querySelector("tbody");
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    data.forEach(function (user) {
-      var tr = document.createElement("tr");
-      var nameTd = document.createElement("td");
-      var emailTd = document.createElement("td");
-      var phoneTd = document.createElement("td");
-      nameTd.innerText = user.name;
-      emailTd.innerText = user.email;
-      phoneTd.innerText = user.phone;
-      tr.append(nameTd, emailTd, phoneTd);
-      tbody === null || tbody === void 0 ? void 0 : tbody.append(tr);
-    });
-  });
+// var tbody = document.querySelector("tbody");
+// fetch("https://jsonplaceholder.typicode.com/users")
+//   .then(function (res) {
+//     return res.json();
+//   })
+//   .then(function (data) {
+//     data.forEach(function (user) {
+//       var tr = document.createElement("tr");
+//       var nameTd = document.createElement("td");
+//       var emailTd = document.createElement("td");
+//       var phoneTd = document.createElement("td");
+//       nameTd.innerText = user.name;
+//       emailTd.innerText = user.email;
+//       phoneTd.innerText = user.phone;
+//       tr.append(nameTd, emailTd, phoneTd);
+//       tbody === null || tbody === void 0 ? void 0 : tbody.append(tr);
+//     });
+//   });
+
+// Exercise II
+// 15
+// - Fetch all albums from https://jsonplaceholder.typicode.com/albums
+// - In album container render card for each of the albums received from the endpoint
+
+const albumContainer: HTMLElement | null = document.querySelector(".container");
+
+interface card {
+  userId: number;
+  id: number;
+  title: string;
+}
+const renderCard = async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/albums");
+    if (!response.ok) {
+      throw new Error("Error");
+    }
+    const data: card[] = await response.json();
+    if (albumContainer) {
+      data.forEach((album) => {
+        let cardElement = document.createElement("div");
+        cardElement.className = "card";
+        cardElement.innerHTML = `
+      <p>Id: ${album.id}</p>
+      <p>title: ${album.title}</p>
+      <p>UserId: ${album.userId}</p>`;
+        albumContainer.appendChild(cardElement);
+      });
+    } else {
+      console.error("Container element not found");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+renderCard();
