@@ -1,9 +1,16 @@
+import { useState } from "react";
+
 const Main = () => {
+  const [name, setName] = useState("John");
+  const changeName = () => {
+    setName("Jane");
+  };
   return (
     <div>
-      <section>First Section</section>
-      <section>Second Section</section>
-      <section>Third Section</section>
+      <p>{name}</p>
+      <button id="btn" onClick={changeName}>
+        Button
+      </button>
     </div>
   );
 };
