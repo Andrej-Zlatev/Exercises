@@ -1,7 +1,8 @@
 import "./App.css";
+import CounterApp from "./CounterApp/CounterApp";
+import Footer from "./footer";
 import "./header/Header";
 import Header from "./header/Header";
-import Footer from "./footer";
 import Main from "./main";
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <main>
         <Main />
+        <CounterApp />
       </main>
       <Footer />
     </>
