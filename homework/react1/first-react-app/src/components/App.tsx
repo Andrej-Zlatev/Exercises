@@ -1,5 +1,6 @@
 import "./App.css";
 import CounterApp from "./CounterApp/CounterApp";
+import Planets from "./Planets";
 import Footer from "./footer";
 import "./header/Header";
 import Header from "./header/Header";
@@ -11,6 +12,7 @@ function App() {
       <main>
         <Main />
         <CounterApp />
+        <Planets />
       </main>
       <Footer />
     </>
