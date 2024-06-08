@@ -10,11 +10,9 @@ const Planets = () => {
 
   return (
     <div>
-      {planets.map((planet, key) => {
-        if (planet.isGasPlanet) {
-          return <h1 key={key}>{planet.name}</h1>;
-        }
-      })}
+      {planets.map(
+        (planet, key) => planet.isGasPlanet && <h1 key={key}>{planet.name}</h1>
+      )}
     </div>
   );
 };
