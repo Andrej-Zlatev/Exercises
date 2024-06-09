@@ -4,6 +4,7 @@ import DataFetcher from "./DataFetcher/DataFetcher";
 import FetchCatFacts from "./FetchCatFacts/FetchCatFacts";
 import Menu from "./Menu/Menu";
 import Planets from "./Planets";
+import PredictAge from "./PredictAge/PredictAge";
 import TextValue from "./TextValue/TextValue";
 import Footer from "./footer";
 import "./header/Header";
@@ -20,6 +21,7 @@ function App() {
         <Planets />
         <TextValue />
         <FetchCatFacts />
+        <PredictAge />
       </main>
       <Footer />
       <DataFetcher />

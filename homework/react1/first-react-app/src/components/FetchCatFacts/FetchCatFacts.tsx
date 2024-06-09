@@ -8,9 +8,11 @@ const FetchCatFacts = () => {
       .then((res) => res.json())
       .then((data) => setFact(data.fact));
   };
-  //   useEffect(() => {
-  //     fetchCatFacts();
-  //   }, []);
+
+  useEffect(() => {
+    fetchCatFacts();
+  }, []);
+
   return (
     <div>
       <button onClick={fetchCatFacts}>Fetch Fact</button>
