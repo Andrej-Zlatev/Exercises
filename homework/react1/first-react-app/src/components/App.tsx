@@ -1,6 +1,7 @@
 import "./App.css";
 import CounterApp from "./CounterApp/CounterApp";
 import DataFetcher from "./DataFetcher/DataFetcher";
+import FetchCatFacts from "./FetchCatFacts/FetchCatFacts";
 import Menu from "./Menu/Menu";
 import Planets from "./Planets";
 import TextValue from "./TextValue/TextValue";
@@ -18,6 +19,7 @@ function App() {
         <CounterApp />
         <Planets />
         <TextValue />
+        <FetchCatFacts />
       </main>
       <Footer />
       <DataFetcher />
