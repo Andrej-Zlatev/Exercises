@@ -1,5 +1,6 @@
 import "./App.css";
 import CounterApp from "./CounterApp/CounterApp";
+import DataFetcher from "./DataFetcher/DataFetcher";
 import Menu from "./Menu/Menu";
 import Planets from "./Planets";
 import TextValue from "./TextValue/TextValue";
@@ -19,6 +20,7 @@ function App() {
         <TextValue />
       </main>
       <Footer />
+      <DataFetcher />
     </>
   );
 }
