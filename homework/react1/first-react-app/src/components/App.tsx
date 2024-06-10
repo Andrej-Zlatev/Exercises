@@ -2,6 +2,7 @@ import "./App.css";
 import CounterApp from "./CounterApp/CounterApp";
 import DataFetcher from "./DataFetcher/DataFetcher";
 import FetchCatFacts from "./FetchCatFacts/FetchCatFacts";
+import FetchPhotos from "./FetchPhotos/FetchPhotos";
 import Menu from "./Menu/Menu";
 import Planets from "./Planets";
 import PredictAge from "./PredictAge/PredictAge";
@@ -22,6 +23,7 @@ function App() {
         <TextValue />
         <FetchCatFacts />
         <PredictAge />
+        <FetchPhotos />
       </main>
       <Footer />
       <DataFetcher />
