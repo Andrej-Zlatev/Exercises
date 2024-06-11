@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Photos from "../Photos/Photos";
 
 const FetchPhotos = () => {
   const [data, setData] = useState([]);
@@ -18,11 +19,9 @@ const FetchPhotos = () => {
     <div>
       <img src="" alt="" />
       <button onClick={renderPhotos}>Fetch Photos</button>
-      <div className="photos-container">
-        {data.map((photo, key) => (
-          <img src={[photo.url]} alt="" key={key} />
-        ))}
-      </div>
+      {data.map((photo, key) => (
+        <Photos url={photo.url} title={photo.title} key={key}></Photos>
+      ))}
     </div>
   );
 };
