@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import MyButton from "./Components/MyButton";
+import DiceRoll from "./Components/DiceRoll/DiceRoll";
+// import MyButton from "./Components/My Button/MyButton";
 
 function App() {
   return (
     <>
-      <MyButton label={"Sign In"} />
-      <MyButton label={"Sign Out"} />
+      {/* <MyButton label={"Sign In"} />
+      <MyButton label={"Sign Out"} /> */}
+      <DiceRoll />
     </>
   );
 }
