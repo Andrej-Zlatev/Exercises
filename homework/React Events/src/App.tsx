@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import DiceRoll from "./Components/DiceRoll/DiceRoll";
+import ContactCard from "./Components/ContactCard/ContactCard";
 // import MyButton from "./Components/My Button/MyButton";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       {/* <MyButton label={"Sign In"} />
       <MyButton label={"Sign Out"} /> */}
-      <DiceRoll />
+      {/* <DiceRoll /> */}
+      <ContactCard />
     </>
   );
 }
