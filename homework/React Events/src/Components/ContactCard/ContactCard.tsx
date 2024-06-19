@@ -22,7 +22,6 @@ const ContactCard = () => {
     setId((id) => id + 1);
   };
 
-  console.log(id);
   return (
     <div>
       <button onClick={handlePrev} disabled={id === 0}>
