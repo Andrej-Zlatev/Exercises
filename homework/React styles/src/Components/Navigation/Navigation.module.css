@@ -1,0 +1,20 @@
+.menuList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+.menuList li {
+  padding: 2rem;
+  background-color: hsl(206, 64%, 43%);
+  border: 1px solid white;
+  cursor: pointer;
+}
+.menuList li:hover {
+  background-color: hsl(206, 64%, 53%);
+}
+.menuList li a {
+  color: white;
+  text-decoration: none;
+}/*# sourceMappingURL=Navigation.module.css.map */
