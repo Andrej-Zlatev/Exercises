@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 const Navigation = () => {
-  const routes = ["about", "auth", "home"];
+  const routes = ["about", "auth", "home", "faq"];
   return (
     <nav>
       <p>Navigation</p>
       <ul>
         {routes.map((route, index) => (
-          <Link to={`/${route}`} key={index}>
+          <NavLink
+            to={`/${route}`}
+            key={index}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             {route}
-          </Link>
+          </NavLink>
         ))}
       </ul>
     </nav>

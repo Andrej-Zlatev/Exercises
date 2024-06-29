@@ -3,6 +3,10 @@ import Auth from "./pages/Auth";
 import About from "./pages/About";
 import Root from "./components/Root";
 import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
+import Faq from "./pages/Faq";
+import NotFound from "./pages/NotFound";
 
 const Router = createBrowserRouter([
   {
@@ -12,6 +16,16 @@ const Router = createBrowserRouter([
       {
         path: "/auth",
         element: <Auth />,
+        children: [
+          {
+            path: "signup",
+            element: <SignUp />,
+          },
+          {
+            path: "login",
+            element: <LogIn />,
+          },
+        ],
       },
       {
         path: "/about",
@@ -22,10 +36,14 @@ const Router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "*",
-        element: <p>404 - not found</p>,
+        path: "faq",
+        element: <Faq />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
