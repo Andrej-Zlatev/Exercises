@@ -1,14 +1,18 @@
+import { Link } from "react-router-dom";
 import { Movie } from "../types";
 
 interface Props {
-  movieList: Movie[];
+  movies: Movie[];
 }
 
-const MovieList = ({ movieList }: Props) => {
+const MovieList = ({ movies }: Props) => {
   return (
     <div>
-      {movieList.map((movie, index) => (
-        <p key={index}>{movie.title}</p>
+      {movies.map((movie, index) => (
+        <Link to={`/moviedetails/${movie.imdbID}`} key={index}>
+          <img src={movie.Poster} alt="" />
+          <p key={index}>{movie.Title}</p>
+        </Link>
       ))}
     </div>
   );
