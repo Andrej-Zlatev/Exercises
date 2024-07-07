@@ -1,10 +1,12 @@
 import "./App.css";
-import Form from "./Component/Form";
+import Emoji from "./Component/Emoji";
+// import Form from "./Component/Form";
 
 function App() {
   return (
     <>
-      <Form />
+      {/* <Form /> */}
+      <Emoji />
     </>
   );
 }
