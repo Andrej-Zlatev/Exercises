@@ -4,12 +4,21 @@ export const useKey = () => {
   const [key, setKey] = useState("");
 
   useEffect(() => {
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", function (e) {
       setKey(e.key);
     });
-    document.addEventListener("keyup", () => {
+    document.addEventListener("keyup", function () {
       setKey("");
     });
+
+    return () => {
+      document.removeEventListener("keydown", function (e) {
+        setKey(e.key);
+      });
+      document.removeEventListener("keyup", function () {
+        setKey("");
+      });
+    };
   }, []);
 
   return key;

@@ -1,12 +1,13 @@
 import "./App.css";
-import Emoji from "./Component/Emoji";
+import Exercise3 from "./Component/Exercise3";
 // import Form from "./Component/Form";
 
 function App() {
   return (
     <>
       {/* <Form /> */}
-      <Emoji />
+      {/* <Emoji /> */}
+      <Exercise3 />
     </>
   );
 }
