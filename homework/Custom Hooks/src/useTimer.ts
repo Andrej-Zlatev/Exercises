@@ -6,8 +6,9 @@ export const useTimer = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setTimer((prevTimer: number) => prevTimer + 1);
-      console.log(id);
     }, 1000);
+
+    console.log(id);
     return () => clearInterval(id);
   }, []);
   return timer;

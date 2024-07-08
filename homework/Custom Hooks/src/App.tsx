@@ -1,5 +1,5 @@
 import "./App.css";
-import Exercise3 from "./Component/Exercise3";
+import Toggle from "./Component/Toggle";
 // import Form from "./Component/Form";
 
 function App() {
@@ -7,7 +7,8 @@ function App() {
     <>
       {/* <Form /> */}
       {/* <Emoji /> */}
-      <Exercise3 />
+      {/* <Exercise3 /> */}
+      <Toggle />
     </>
   );
 }
