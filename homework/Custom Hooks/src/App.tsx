@@ -1,4 +1,5 @@
 import "./App.css";
+import Count from "./Component/Count";
 import Toggle from "./Component/Toggle";
 // import Form from "./Component/Form";
 
@@ -8,7 +9,8 @@ function App() {
       {/* <Form /> */}
       {/* <Emoji /> */}
       {/* <Exercise3 /> */}
-      <Toggle />
+      {/* <Toggle /> */}
+      <Count />
     </>
   );
 }
