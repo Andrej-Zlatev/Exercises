@@ -1,6 +1,7 @@
 import "./App.css";
 import Count from "./Component/Count";
 import Toggle from "./Component/Toggle";
+import WelcomeForm from "./Component/WelcomeForm";
 // import Form from "./Component/Form";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       {/* <Emoji /> */}
       {/* <Exercise3 /> */}
       {/* <Toggle /> */}
-      <Count />
+      {/* <Count /> */}
+      <WelcomeForm />
     </>
   );
 }
